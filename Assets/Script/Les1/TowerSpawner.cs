@@ -1,16 +1,21 @@
 using UnityEngine;
 
-public class Tower : MonoBehaviour
+public class TowerSpawner : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public GameObject towerPrefab;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            
+            Vector3 randomPos = new Vector3(
+                Random.Range(-10f, 10f),
+                0,
+                Random.Range(-10f, 10f)
+            );
+
+            Instantiate(towerPrefab, randomPos, Quaternion.identity);
+        }
     }
 }
